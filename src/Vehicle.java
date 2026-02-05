@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public abstract class Vehicle {
     private String vehicleId;
     private String brand;
@@ -8,7 +6,7 @@ public abstract class Vehicle {
     private boolean isAvailable;
 
     // creating Vehicle Constructor
-    public Vehicle(String vehicleId, String brand, String model, double baseRatePerDay, boolean isAvailable) {
+    public Vehicle(String vehicleId, String brand, String model, double baseRatePerDay) {
         this.vehicleId = vehicleId;
         this.brand = brand;
         this.model = model;
@@ -46,7 +44,7 @@ public abstract class Vehicle {
         return baseRatePerDay;
     }
     public void setBaseRatePerDay(double baseRatePerDay) {
-        if (baseRatePerDay < 0) {
+        if (baseRatePerDay < 0) {  // If enter negative value
             System.out.println("Warning: Base Rate cannot be negative.");
             this.baseRatePerDay = 0;
         } else {
@@ -69,7 +67,7 @@ public abstract class Vehicle {
         System.out.println("Vehicle Brand      : " + brand);
         System.out.println("Vehicle Model      : " + model);
         System.out.println("Rate per Day (Rs.) : " + baseRatePerDay);
-        System.out.println("Available          : " + (isAvailable ? "Yes" : "No"));    // Turnery Operator: alternative to the if-else statement.
+        System.out.println("Available          : " + (isAvailable ? "Yes" : "No"));    // Ternery Operator: alternative to the if-else statement.
         System.out.println("--------------------------------------------------------------------");
 
     }
