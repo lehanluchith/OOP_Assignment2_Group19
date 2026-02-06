@@ -1,29 +1,32 @@
-public class Van extends Vehicle {  // Inherit the Parent class
+// inheriting the Vehicle class
+public class Van extends Vehicle {
     private double cargoCapacityKg;
 
-    //Creating Van constructor
+    // Creating Van constructor
     public Van(String vehicleId, String brand, String model, double baseRatePerDay, double cargoCapacityKg){
         super(vehicleId, brand, model, baseRatePerDay);
 
-        // If enter negative value
-        if (cargoCapacityKg <= 0){
-            System.out.println("Warning:\nCargo capacity must be positive.");
-            this.cargoCapacityKg = 50; // Set Default Value
+        // setting a default value for cargoCapacityKg
+        if (cargoCapacityKg < 350){
+            System.out.println("Warning: The minimum Cargo Capacity of a Van must be 350 kg.");
+            this.cargoCapacityKg = 350;
         }else {
             this.cargoCapacityKg = cargoCapacityKg;
         }
     }
 
-    @Override  // Polymorphism (Calculate the rental Cost)
+    // Polymorphism: Overrides calculateRentalCost
+    @Override
     public double calculateRentalCost(int days){
         return getBaseRatePerDay() * days + (cargoCapacityKg * 0.2 *days);
     }
 
-    @Override  // Polymorphism (Override the Display Details)
+    // Polymorphism: Overrides the Display Details
+    @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Cargo Capacity (Kg) : " + cargoCapacityKg);
-        System.out.println("Vehicle Type        : Van");
+        System.out.println("Cargo Capacity (kg)  : " + cargoCapacityKg);
+        System.out.println("Vehicle Type         : Van");
     }
 
     public double getCargoCapacityKg(){

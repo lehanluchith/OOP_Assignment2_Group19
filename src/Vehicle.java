@@ -1,3 +1,4 @@
+// creating abstract Vehicle class
 public abstract class Vehicle {
     private String vehicleId;
     private String brand;
@@ -45,7 +46,7 @@ public abstract class Vehicle {
     }
     public void setBaseRatePerDay(double baseRatePerDay) {
         if (baseRatePerDay < 0) {  // If enter negative value
-            System.out.println("Warning: Base Rate cannot be negative.");
+            System.out.println("Warning: The Base Rate per Day cannot be negative.");
             this.baseRatePerDay = 0;
         } else {
             this.baseRatePerDay = baseRatePerDay;
@@ -62,13 +63,11 @@ public abstract class Vehicle {
 
     // creating method to display vehicle details
     public void displayDetails() {
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("Vehicle ID         : " + vehicleId);
-        System.out.println("Vehicle Brand      : " + brand);
-        System.out.println("Vehicle Model      : " + model);
-        System.out.println("Rate per Day (Rs.) : " + baseRatePerDay);
-        System.out.println("Available          : " + (isAvailable ? "Yes" : "No"));    // Ternery Operator: alternative to the if-else statement.
-        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Vehicle ID           : " + vehicleId);
+        System.out.println("Vehicle Brand        : " + brand);
+        System.out.println("Vehicle Model        : " + model);
+        System.out.println("Rate per Day (Rs.)   : " + baseRatePerDay);
+        System.out.println("Available            : " + (isAvailable ? "Yes" : "No"));    // Ternary Operator: alternative to the if-else statement.
 
     }
 
