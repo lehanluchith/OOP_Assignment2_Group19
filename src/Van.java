@@ -8,7 +8,8 @@ public class Van extends Vehicle {
 
         // setting a default value for cargoCapacityKg
         if (cargoCapacityKg < 350){
-            System.out.println("Warning: The minimum Cargo Capacity of a Van must be 350 kg.");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("WARNING: The minimum Cargo Capacity of a Van must be 350 kg.");
             this.cargoCapacityKg = 350;
         }else {
             this.cargoCapacityKg = cargoCapacityKg;
@@ -25,8 +26,8 @@ public class Van extends Vehicle {
     @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Cargo Capacity (kg)  : " + cargoCapacityKg);
-        System.out.println("Vehicle Type         : Van");
+        System.out.println("Cargo Capacity (kg)           : " + cargoCapacityKg);
+        System.out.println("Vehicle Type                  : Van");
     }
 
     public double getCargoCapacityKg(){
