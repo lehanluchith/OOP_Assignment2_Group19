@@ -8,7 +8,8 @@ public class Bike extends Vehicle {
 
         // setting a default value for engineCapacityCC
         if (engineCapacityCC < 50){
-            System.out.println("Warning: The minimum Engine Capacity of a Bike must be 50 cc.");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("WARNING: The minimum Engine Capacity of a Bike must be 50 cc.");
             this.engineCapacityCC = 50;
         }else {
             this.engineCapacityCC = engineCapacityCC;
@@ -25,8 +26,8 @@ public class Bike extends Vehicle {
     @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Engine Capacity (cc) : " + engineCapacityCC);
-        System.out.println("Vehicle Type         : Bike");
+        System.out.println("Engine Capacity (cc)          : " + engineCapacityCC);
+        System.out.println("Vehicle Type                  : Bike");
     }
 
     public int getEngineCapacityCC(){

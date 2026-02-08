@@ -46,6 +46,7 @@ public abstract class Vehicle {
     }
     public void setBaseRatePerDay(double baseRatePerDay) {
         if (baseRatePerDay < 0) {  // If enter negative value
+            System.out.println("-------------------------------------------------------------------------------------");
             System.out.println("Warning: The Base Rate per Day cannot be negative.");
             this.baseRatePerDay = 0;
         } else {
@@ -63,11 +64,11 @@ public abstract class Vehicle {
 
     // creating method to display vehicle details
     public void displayDetails() {
-        System.out.println("Vehicle ID           : " + vehicleId);
-        System.out.println("Vehicle Brand        : " + brand);
-        System.out.println("Vehicle Model        : " + model);
-        System.out.println("Rate per Day (Rs.)   : " + baseRatePerDay);
-        System.out.println("Available            : " + (isAvailable ? "Yes" : "No"));    // Ternary Operator: alternative to the if-else statement.
+        System.out.println("Vehicle ID                    : " + vehicleId);
+        System.out.println("Vehicle Brand                 : " + brand);
+        System.out.println("Vehicle Model                 : " + model);
+        System.out.println("Rate per Day (Rs.)            : " + baseRatePerDay);
+        System.out.println("Available                     : " + (isAvailable ? "Yes" : "No"));    // Ternary Operator: alternative to the if-else statement.
 
     }
 
@@ -75,16 +76,19 @@ public abstract class Vehicle {
     public void rentVehicle() {
         if (isAvailable) {
             isAvailable = false;
-            System.out.println("Vehicle " + vehicleId + " has been successfully rented. SAFE RIDE!");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("Vehicle has been successfully rented. SAFE RIDE!");
         } else {
-            System.out.println("Vehicle " + vehicleId + " is currently unavailable. WE ARE SORRY!");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("Vehicle is currently unavailable. WE ARE SORRY!");
         }
     }
 
     // creating method to return a vehicle
     public void returnVehicle() {
         isAvailable = true;
-        System.out.println("Vehicle " + vehicleId + " has been returned. THANK YOU!");
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println("Vehicle has been returned. THANK YOU!");
     }
 
     // creating abstract method to be implemented by subclasses

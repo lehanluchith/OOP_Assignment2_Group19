@@ -8,7 +8,8 @@ public class Car extends Vehicle{
 
         // setting a default value for numberOfSeats
         if (numberOfSeats < 2){
-            System.out.println("Warning: The minimum Number of Seats of a Car must be 2.");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("WARNING: The minimum Number of Seats of a Car must be 2.");
             this.numberOfSeats = 2;
         }else {
             this.numberOfSeats = numberOfSeats;
@@ -25,8 +26,8 @@ public class Car extends Vehicle{
     @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Number Of Seats      : " + numberOfSeats);
-        System.out.println("Vehicle Type         : Car");
+        System.out.println("Number Of Seats               : " + numberOfSeats);
+        System.out.println("Vehicle Type                  : Car");
     }
 
     public int getNumberOfSeats(){
