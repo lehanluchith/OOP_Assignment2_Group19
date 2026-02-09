@@ -67,7 +67,7 @@ public abstract class Vehicle {
         System.out.println("Vehicle ID                    : " + vehicleId);
         System.out.println("Vehicle Brand                 : " + brand);
         System.out.println("Vehicle Model                 : " + model);
-        System.out.println("Rate per Day (Rs.)            : " + baseRatePerDay);
+        System.out.printf("Rate per Day (Rs.)            : %.2f%n" , baseRatePerDay);    // formats to 2 decimel places
         System.out.println("Available                     : " + (isAvailable ? "Yes" : "No"));    // Ternary Operator: alternative to the if-else statement.
 
     }
