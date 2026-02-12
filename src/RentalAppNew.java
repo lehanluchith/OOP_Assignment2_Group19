@@ -34,6 +34,13 @@ public class RentalAppNew {
                 System.out.print("Enter Vehicle ID              : ");
                 String id = scanner.nextLine().trim();    // trim(): removes leading and trailing whitespace
 
+                // checks if vehicleID is empty
+                if (id.isEmpty()) {
+                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println("ERROR: Vehicle ID cannot be empty. Adding Vehicle Failed.");
+                    return;
+                }
+
                 // For-each Loop: v in vehicles ArrayList
                 for (Vehicle v : vehicles) {
 
@@ -48,8 +55,23 @@ public class RentalAppNew {
                 System.out.print("Enter Vehicle Brand           : ");
                 String brand = scanner.nextLine().trim();
 
+                // checks if vehicle brand is empty
+                if (brand.isEmpty()) {
+                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println("ERROR: Brand cannot be empty. Adding vehicle failed");
+                    return;
+                }
+
+
                 System.out.print("Enter Vehicle Model           : ");
                 String model = scanner.nextLine().trim();
+
+                // checks if vehicle modle is empty
+                if (model.isEmpty()) {
+                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println("ERROR: Vehicle Model cannot be empty. Adding vehicle failed");
+                    return;
+                }
 
                 System.out.print("Enter Base Rate per Day (Rs.) : ");
                 double rate = Double.parseDouble(scanner.nextLine());    // reads the entire input and converts it to a double
@@ -216,6 +238,28 @@ public class RentalAppNew {
         System.out.printf("Total Rental Income (Rs.)     : %.2f%n" , totalRentalIncome);    // formats to 2 decimel places
     }
 
+    // creating removeVehicle method
+    private static void removeVehicle() {
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.print("Enter Vehicle ID to remove    : ");
+        String id = scanner.nextLine().trim();
+
+        for (Vehicle v : vehicles) {
+            if (v.getVehicleId().equalsIgnoreCase(id)) {
+
+                vehicles.remove(v);   // remove from ArrayList
+                saveData();           // update file
+
+                System.out.println("-------------------------------------------------------------------------------------");
+                System.out.println("Vehicle removed successfully!");
+                return;
+            }
+        }
+
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println("Vehicle not found. Removal failed.");
+    }
+
     // File Handling
     // creating saveData method
     private static void saveData() {
@@ -346,9 +390,10 @@ public class RentalAppNew {
             System.out.println("    4. Return a Vehicle");
             System.out.println("    5. Search Vehicle by ID");
             System.out.println("    6. View Total Rental Income");
-            System.out.println("    7. Exit");
+            System.out.println("    7. Remove a Vehicle");
+            System.out.println("    8. Exit");
             System.out.println("-------------------------------------------------------------------------------------");
-            System.out.print("Enter your choice (1-7)       : ");
+            System.out.print("Enter your choice (1-8)       : ");
 
             try {
                 int choice = Integer.parseInt(scanner.nextLine());    // reads the entire input and converts it to an integer
@@ -379,9 +424,14 @@ public class RentalAppNew {
                         break;
 
                     case 7:
-                        saveData();    // saves data before exiting
+                        removeVehicle();
+                        break;
+
+                    case 8:
+                        saveData();
                         running = false;
                         break;
+
 
                     default:
                         System.out.println("-------------------------------------------------------------------------------------");
