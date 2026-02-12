@@ -28,7 +28,7 @@ public class RentalAppNew {
 
             System.out.println("-------------------------------------------------------------------------------------");
             if (type < 1 || type > 3 ) {
-                System.out.println("ERROR: Invalid numeric input. Adding vehicle failed.");
+                System.out.println("ERROR: Invalid vehicle type selection.");
 
             } else {
                 System.out.print("Enter Vehicle ID              : ");
@@ -37,7 +37,7 @@ public class RentalAppNew {
                 // For-each Loop: v in vehicles ArrayList
                 for (Vehicle v : vehicles) {
 
-                    // equalsIgnoreCase is a case-sensitive method. checks for unique Vehicle ID
+                    // equalsIgnoreCase is a case-insensitive method. checks for unique Vehicle ID
                     if (v.getVehicleId().equalsIgnoreCase(id)) {
                         System.out.println("-------------------------------------------------------------------------------------");
                         System.out.println("ERROR: This Vehicle already exists in the System. Adding vehicle failed.");
@@ -180,6 +180,9 @@ public class RentalAppNew {
                 } else {
                     v.returnVehicle();
                     saveData();    // saves data
+
+                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println("Vehicle returned successfully!");
                 }
                 return;
             }
@@ -260,6 +263,8 @@ public class RentalAppNew {
 
     // creating loadData method
     private static void loadData() {
+        vehicles.clear();  // Clears existing vehicle list to prevent duplication when reloading data
+
         // creating File object
         File file = new File(FILE);
 
