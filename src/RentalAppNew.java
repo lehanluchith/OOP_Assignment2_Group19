@@ -15,8 +15,13 @@ public class RentalAppNew {
     // creating Scanner object to input data
     private static Scanner scanner = new Scanner(System.in);
 
+    // Adding getter for the scanner
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
     // creating addVehicle method
-    private static void addVehicle() {
+    public static void addVehicle() {
         try {
             System.out.println("-------------------------------------------------------------------------------------");
             System.out.println("    1. Bike");
@@ -123,7 +128,7 @@ public class RentalAppNew {
     }
 
     // creating viewAllVehicles method
-    private static void viewAllVehicles() {
+    public static void viewAllVehicles() {
         if (vehicles.isEmpty()) {
             System.out.println("-------------------------------------------------------------------------------------");
             System.out.println("No vehicles in the system. WE ARE SORRY!");
@@ -138,7 +143,7 @@ public class RentalAppNew {
     }
 
     // creating rentVehicle method
-    private static void rentVehicle() {
+    public static void rentVehicle() {
         System.out.println("-------------------------------------------------------------------------------------");
         System.out.print("Enter Vehicle ID to Rent      : ");
         String id = scanner.nextLine().trim();    // trim(): removes leading and trailing whitespace
@@ -185,7 +190,7 @@ public class RentalAppNew {
     }
 
     // creating returnVehicle method
-    private static void returnVehicle() {
+    public static void returnVehicle() {
         System.out.println("-------------------------------------------------------------------------------------");
         System.out.print("Enter Vehicle ID to return    : ");
         String id = scanner.nextLine().trim();    // trim(): removes leading and trailing whitespace
@@ -214,7 +219,7 @@ public class RentalAppNew {
     }
 
     // creating searchVehicle method
-    private static void searchVehicle() {
+    public static void searchVehicle() {
         System.out.print("Enter vehicle ID to search    : ");
         String id = scanner.nextLine().trim();    // trim(): removes leading and trailing whitespace
 
@@ -233,13 +238,13 @@ public class RentalAppNew {
     }
 
     // creating viewTotalRentalIncome method
-    private static void viewTotalRentalIncome() {
+    public static void viewTotalRentalIncome() {
         System.out.println("-------------------------------------------------------------------------------------");
         System.out.printf("Total Rental Income (Rs.)     : %.2f%n" , totalRentalIncome);    // formats to 2 decimel places
     }
 
     // creating removeVehicle method
-    private static void removeVehicle() {
+    public static void removeVehicle() {
         System.out.println("-------------------------------------------------------------------------------------");
         System.out.print("Enter Vehicle ID to remove    : ");
         String id = scanner.nextLine().trim();
@@ -262,7 +267,7 @@ public class RentalAppNew {
 
     // File Handling
     // creating saveData method
-    private static void saveData() {
+    public static void saveData() {
         // creating PrintWriter object. try-with-resouces ensures writer is closed automatically
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE))) {
             // saving total income on first line
@@ -306,7 +311,7 @@ public class RentalAppNew {
     }
 
     // creating loadData method
-    private static void loadData() {
+    public static void loadData() {
         vehicles.clear();  // Clears existing vehicle list to prevent duplication when reloading data
 
         // creating File object
@@ -374,80 +379,4 @@ public class RentalAppNew {
 
         }
     }
-
-    public static void main(String[] args) {
-        // loading existing data from the text file when the program starts
-        loadData();
-
-        boolean running = true;
-        while (running) {
-            System.out.println("-------------------------------------------------------------------------------------");
-            System.out.println("                                VEHICLE RENTAL SYSTEM                                ");
-            System.out.println("-------------------------------------------------------------------------------------");
-            System.out.println("    1. Add a Vehicle");
-            System.out.println("    2. View All Vehicles");
-            System.out.println("    3. Rent a Vehicle");
-            System.out.println("    4. Return a Vehicle");
-            System.out.println("    5. Search Vehicle by ID");
-            System.out.println("    6. View Total Rental Income");
-            System.out.println("    7. Remove a Vehicle");
-            System.out.println("    8. Exit");
-            System.out.println("-------------------------------------------------------------------------------------");
-            System.out.print("Enter your choice (1-8)       : ");
-
-            try {
-                int choice = Integer.parseInt(scanner.nextLine());    // reads the entire input and converts it to an integer
-
-                switch (choice) {
-                    case 1:
-                        addVehicle();
-                        break;
-
-                    case 2:
-                        viewAllVehicles();
-                        break;
-
-                    case 3:
-                        rentVehicle();
-                        break;
-
-                    case 4:
-                        returnVehicle();
-                        break;
-
-                    case 5:
-                        searchVehicle();
-                        break;
-
-                    case 6:
-                        viewTotalRentalIncome();
-                        break;
-
-                    case 7:
-                        removeVehicle();
-                        break;
-
-                    case 8:
-                        saveData();
-                        running = false;
-                        break;
-
-
-                    default:
-                        System.out.println("-------------------------------------------------------------------------------------");
-                        System.out.println("ERROR: Invalid selection. Try again.");
-
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("-------------------------------------------------------------------------------------");
-                System.out.println("ERROR: Please enter a valid number for menu selection.");
-
-            }
-        }
-        System.out.println("-------------------------------------------------------------------------------------");
-        System.out.println("                        System closed. All Data saved.                               ");
-        System.out.println("-------------------------------------------------------------------------------------");
-
-    }
-
 }
