@@ -204,12 +204,11 @@ public class RentalAppNew {
                 if (v.isAvailable()) {
                     System.out.println("-------------------------------------------------------------------------------------");
                     System.out.println("This Vehicle is already in the System.");
+
                 } else {
                     v.returnVehicle();
                     saveData();    // saves data
 
-                    System.out.println("-------------------------------------------------------------------------------------");
-                    System.out.println("Vehicle returned successfully!");
                 }
                 return;
             }
