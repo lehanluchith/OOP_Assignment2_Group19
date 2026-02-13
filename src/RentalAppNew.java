@@ -219,6 +219,7 @@ public class RentalAppNew {
 
     // creating searchVehicle method
     public static void searchVehicle() {
+        System.out.println("-------------------------------------------------------------------------------------");
         System.out.print("Enter vehicle ID to search    : ");
         String id = scanner.nextLine().trim();    // trim(): removes leading and trailing whitespace
 
